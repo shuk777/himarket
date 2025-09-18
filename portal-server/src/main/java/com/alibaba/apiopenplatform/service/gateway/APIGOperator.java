@@ -432,14 +432,18 @@ public class APIGOperator extends GatewayOperator<APIGClient> {
         String region = gateway.getApigConfig().getRegion();
         String gatewayId = gateway.getGatewayId();
         String dashboardId = "";
+        String gatewayFilter = "";
         if (type.equals("Portal")) {
             dashboardId = "dashboard-1758009692051-393998";
+            gatewayFilter = "";
         } else if (type.equals("MCP")) {
             dashboardId = "dashboard-1757483808537-433375";
+            gatewayFilter = "filters=cluster_id%253A%2520" + gatewayId + "&";
         } else if (type.equals("API")) {
             dashboardId = "dashboard-1756276497392-966932";
+            gatewayFilter = "filters=cluster_id%253A%2520" + gatewayId + "&";
         }
-        String dashboardUrl = String.format("https://sls.console.aliyun.com/lognext/project/%s/dashboard/%s?filters=cluster_id%%253A%%2520%s&slsRegion=%s&sls_ticket=%s&isShare=true&hideTopbar=true&hideSidebar=true&ignoreTabLocalStorage=true", projectName, dashboardId, gatewayId, region, ticket);        log.info("Dashboard URL: {}", dashboardUrl);
+        String dashboardUrl = String.format("https://sls.console.aliyun.com/lognext/project/%s/dashboard/%s?%sslsRegion=%s&sls_ticket=%s&isShare=true&hideTopbar=true&hideSidebar=true&ignoreTabLocalStorage=true", projectName, dashboardId, gatewayFilter, region, ticket);        log.info("Dashboard URL: {}", dashboardUrl);
         return dashboardUrl;
     }
 

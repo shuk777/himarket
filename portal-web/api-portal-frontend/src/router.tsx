@@ -9,6 +9,10 @@ import Callback from "./pages/Callback";
 import Mcp from "./pages/Mcp";
 import McpDetail from "./pages/McpDetail";
 import OidcCallback from "./pages/OidcCallback";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+import GettingStarted from "./pages/GettingStarted";
+import Consumers from "./pages/Consumers";
 
 export default function Router() {
   return (
@@ -22,12 +26,13 @@ export default function Router() {
       <Route path="/models" element={<Models />} />
       <Route path="/mcp" element={<Mcp />} />
       <Route path="/mcp/:mcpName" element={<McpDetail />} />
+      <Route path="/consumers" element={<Consumers />} />
       <Route path="/consumers/:consumerId" element={<ConsumerDetail />} />
-      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/callback" element={<Callback />} />
       <Route path="/oidc/callback" element={<OidcCallback />} />
+      <Route path="/getting-started" element={<GettingStarted />} />
 
       {/* 其他页面可继续添加 */}
     </Routes>

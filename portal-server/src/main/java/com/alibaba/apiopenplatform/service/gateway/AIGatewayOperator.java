@@ -336,11 +336,11 @@ public class AIGatewayOperator extends APIGOperator {
             gatewayFilter = "";
         } else if (type.equals("MCP")) {
             dashboardId = "dashboard-1757483808537-433375";
-            gatewayFilter = "filters=cluster_id%%253A%%2520" + gatewayId;
+            gatewayFilter = "filters=cluster_id%253A%2520" + gatewayId + "&";
         } else if (type.equals("API")) {
             dashboardId = "dashboard-1756276497392-966932";
-            gatewayFilter = "filters=cluster_id%%253A%%2520" + gatewayId;;
-        } 
+            gatewayFilter = "filters=cluster_id%253A%2520" + gatewayId + "&";
+        }
         String dashboardUrl = String.format("https://sls.console.aliyun.com/lognext/project/%s/dashboard/%s?%s&slsRegion=%s&sls_ticket=%s&isShare=true&hideTopbar=true&hideSidebar=true&ignoreTabLocalStorage=true", projectName, dashboardId, gatewayFilter, region, ticket);        log.info("Dashboard URL: {}", dashboardUrl);
         return dashboardUrl;
     }
